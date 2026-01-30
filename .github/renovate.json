@@ -1,0 +1,15 @@
+{
+    "extends": [
+        "github>klutchell/renovate-config"
+    ],
+    "packageRules": [
+        {
+            "description": "Group ghcr.io/ozark-connect/network-optimizer and ghcr.io/ozark-connect/speedtest together",
+            "matchPackageNames": [
+                "ghcr.io/ozark-connect/network-optimizer",
+                "ghcr.io/ozark-connect/speedtest"
+            ],
+            "groupName": "network-optimizer"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+version: "2"
+
+services:
+  network-optimizer:
+    image: ghcr.io/ozark-connect/network-optimizer:1.1.3
+    network_mode: host
+    volumes:
+      - data:/app/data
+      - ssh-keys:/app/ssh-keys:ro
+      - logs:/app/logs
+    environment:
+      BIND_LOCALHOST_ONLY: "false"
+      OPENSPEEDTEST_HTTPS: "false"
+      OPENSPEEDTEST_PORT: "3000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8042/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  speedtest:
+    image: ghcr.io/ozark-connect/speedtest:1.1.3
+    ports:
+      - "3000:3000"
+
+volumes:
+  data: {}
+  ssh-keys: {}
+  logs: {}
