@@ -2,7 +2,7 @@ version: "2"
 
 services:
   network-optimizer:
-    image: ghcr.io/ozark-connect/network-optimizer:1.16.10@sha256:aca6d7eaee80533c87cc4959a6326297ce4bcbf9f8805fe4249c990520c9e4d9
+    image: ghcr.io/ozark-connect/network-optimizer:1.16.11@sha256:41446be48d72f6124efc37983a831fe3d971dadcdc7f242177de0334c11f365a
     network_mode: host
     volumes:
       - data:/app/data
@@ -20,7 +20,7 @@ services:
       start_period: 60s
 
   speedtest:
-    image: ghcr.io/ozark-connect/speedtest:1.16.10@sha256:530c78c32ee524ea93d8b38a6677bb6e7082fc74e51a5970de9a26e3c0809ec1
+    image: ghcr.io/ozark-connect/speedtest:1.16.11@sha256:7c91b78c25fbe78dba1e13085acaf71d1d1b2607fff17c040591615c95fc955e
     ports:
       - "3000:3000"
 
